@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kavya & Vineeth Engagement</title>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cinzel:wght@400;700&family=Lora:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold: #b38b4d;
+            --dark-brown: #5d4037;
+            --cream-bg: #fdf5e6;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body, html {
+            height: 100%;
+            width: 100%;
+            background-color: var(--cream-bg);
+            font-family: 'Lora', serif;
+            color: var(--dark-brown);
+            overflow-x: hidden;
+        }
+
+        /* Full Screen Decorative Container */
+        .main-wrapper {
+            min-height: 100vh;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            padding: 20px;
+            /* Floral Pattern Simulation */
+            background-image: 
+                radial-gradient(circle at top left, rgba(179, 139, 77, 0.05) 0%, transparent 40%),
+                radial-gradient(circle at top right, rgba(179, 139, 77, 0.05) 0%, transparent 40%);
+        }
+
+        /* The Gold Frame */
+        .border-frame {
+            position: fixed;
+            top: 15px;
+            left: 15px;
+            right: 15px;
+            bottom: 15px;
+            border: 2px solid var(--gold);
+            pointer-events: none;
+            z-index: 10;
+        }
+
+        .content-card {
+            width: 100%;
+            max-width: 800px;
+            text-align: center;
+            padding: 60px 20px;
+            z-index: 5;
+            background: rgba(253, 245, 230, 0.8);
+            border-radius: 10px;
+        }
+
+        .om { font-size: 45px; margin-bottom: 20px; }
+
+        .header-text {
+            font-family: 'Cinzel', serif;
+            letter-spacing: 3px;
+            font-size: clamp(14px, 2vw, 18px);
+            margin-bottom: 20px;
+        }
+
+        .names {
+            font-family: 'Great Vibes', cursive;
+            font-size: clamp(60px, 10vw, 90px);
+            line-height: 1;
+            margin: 20px 0;
+            color: var(--dark-brown);
+        }
+
+        .ampersand {
+            font-size: 40px;
+            display: block;
+            margin: 10px 0;
+        }
+
+        .invite-msg {
+            font-size: clamp(16px, 1.5vw, 20px);
+            margin: 30px 0;
+            font-style: italic;
+            line-height: 1.6;
+        }
+
+        /* Date Section */
+        .date-row {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            margin: 10px 0;
+        }
+
+        .line {
+            height: 1.5px;
+            background: var(--gold);
+            flex: 1;
+            max-width: 100px;
+        }
+
+        .month-year {
+            font-family: 'Cinzel', serif;
+            letter-spacing: 5px;
+            font-weight: bold;
+        }
+
+        .big-date {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(50px, 8vw, 70px);
+            border-left: 2px solid var(--gold);
+            border-right: 2px solid var(--gold);
+            padding: 0 25px;
+            margin: 15px 0;
+        }
+
+        .time-info {
+            font-family: 'Cinzel', serif;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .venue {
+            margin-top: 40px;
+            font-size: 18px;
+        }
+
+        .venue b {
+            font-family: 'Cinzel', serif;
+            display: block;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        /* Countdown */
+        .countdown {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 40px 0;
+        }
+
+        .unit {
+            background: var(--dark-brown);
+            color: white;
+            padding: 10px;
+            min-width: 70px;
+            border-radius: 5px;
+        }
+
+        .unit span { font-size: 24px; font-weight: bold; display: block; }
+        .unit label { font-size: 10px; text-transform: uppercase; }
+
+        /* Buttons */
+        .btn-group {
+            margin-top: 30px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .btn {
+            background: var(--gold);
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            font-family: 'Cinzel', serif;
+            font-weight: bold;
+            transition: 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover { background: var(--dark-brown); }
+
+        iframe {
+            margin-top: 30px;
+            width: 100%;
+            height: 300px;
+            border: 3px solid white;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="border-frame"></div>
+
+    <div class="main-wrapper">
+        <div class="content-card">
+            <div class="om">ॐ</div>
+            
+            <p class="header-text">Together with their families</p>
+            
+            <h1 class="names">
+                Kavya <span class="ampersand">&</span> Vineeth
+            </h1>
+
+            <p class="invite-msg">
+                cordially invite you to join the occasion<br>
+                of their engagement ceremony on
+            </p>
+
+            <div class="month-year">MAY</div>
+            
+            <div class="date-row">
+                <div class="line"></div>
+                <div class="time-info">WEDNESDAY</div>
+                <div class="big-date">13</div>
+                <div class="time-info">AT 9:45 AM</div>
+                <div class="line"></div>
+            </div>
+
+            <div class="month-year">2026</div>
+
+            <div class="venue">
+                <b>AT SANJO AUDITORIUM</b>
+                Opp. St. Joseph’s Syro-Malabar Church,<br>
+                Chunangamvely, Aluva
+            </div>
+
+            <div class="countdown">
+                <div class="unit"><span id="days">00</span><label>Days</label></div>
+                <div class="unit"><span id="hours">00</span><label>Hrs</label></div>
+                <div class="unit"><span id="mins">00</span><label>Min</label></div>
+                <div class="unit"><span id="secs">00</span><label>Sec</label></div>
+            </div>
+
+            <div class="btn-group">
+                <a href="https://www.google.com/maps/dir/?api=1&destination=10.089611,76.381500" target="_blank" class="btn">Get Directions</a>
+            </div>
+
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3928.324838612!2d76.3715!3d10.0896!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTDCsDA1JzIyLjYiTiA3NsKwMjInNTMuNCJF!5e0!3m2!1sen!2sin!4v1711234567890" 
+                allowfullscreen="" loading="lazy">
+            </iframe>
+        </div>
+    </div>
+
+    <script>
+        const target = new Date("May 13, 2026 09:45:00").getTime();
+
+        function updateTimer() {
+            const now = new Date().getTime();
+            const diff = target - now;
+
+            const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const s = Math.floor((diff % (1000 * 60)) / 1000);
+
+            document.getElementById("days").innerText = d;
+            document.getElementById("hours").innerText = h;
+            document.getElementById("mins").innerText = m;
+            document.getElementById("secs").innerText = s;
+        }
+        setInterval(updateTimer, 1000);
+        updateTimer();
+    </script>
+</body>
+</html>
