@@ -25,7 +25,6 @@
             background-color: #00332a;
         }
 
-        /* --- BACKGROUND FIX --- */
         .animated-bg {
             position: fixed;
             top: 0; left: 0; 
@@ -50,8 +49,8 @@
         }
 
         .content-card {
-            width: 100%;
-            max-width: 450px;
+            width: 95%;
+            max-width: 420px;
             max-height: 96vh;
             text-align: center;
             padding: 25px 20px;
@@ -69,67 +68,73 @@
         }
 
         @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(25px); }
+            from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Sequential Delays */
-        .delay-1 { animation-delay: 1s; }
-        .delay-2 { animation-delay: 2s; }
-        .delay-3 { animation-delay: 3s; }
-        .delay-4 { animation-delay: 4s; }
-        .delay-5 { animation-delay: 5s; }
-        .delay-6 { animation-delay: 6s; }
-        .delay-7 { animation-delay: 7s; }
+        .delay-1 { animation-delay: 0.6s; }
+        .delay-2 { animation-delay: 1.2s; }
+        .delay-3 { animation-delay: 1.8s; }
+        .delay-4 { animation-delay: 2.4s; }
+        .delay-5 { animation-delay: 3.0s; }
+        .delay-6 { animation-delay: 3.6s; }
+        .delay-7 { animation-delay: 4.2s; }
 
-        /* --- CONTINUOUS ZOOM (BREATHING) ANIMATION --- */
+        /* --- FIXED SIZE & NO-CROP NAMES --- */
+        .names-container {
+            width: 100%;
+            overflow: visible; /* Ensures script loops aren't cut by parent */
+            padding: 15px 0;   /* Vertical room for ascenders/descenders */
+            display: block;
+        }
+
         .names {
             font-family: 'Great Vibes', cursive;
-            font-size: clamp(45px, 11vw, 60px);
-            line-height: 1.6;
+            /* Constant size for consistency */
+            font-size: 48px; 
+            line-height: 1.2;
             background: linear-gradient(45deg, var(--bottle-green), var(--royal-gold));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             display: inline-block;
-            margin: 5px 0;
-            /* Infinite Pulse Effect */
+            white-space: nowrap; /* Prevents names from breaking into two lines */
+            padding: 0 20px;    /* Horizontal room to prevent edge clipping */
             animation: pulse 3s infinite ease-in-out;
+            position: relative;
         }
 
         @keyframes pulse {
             0% { transform: scale(1); }
-            50% { transform: scale(1.08); }
+            50% { transform: scale(1.04); } /* Gentle zoom */
             100% { transform: scale(1); }
         }
 
         .om { font-size: 28px; color: var(--bottle-green); margin-bottom: 5px; }
-        .header-text { font-family: 'Cinzel', serif; letter-spacing: 2px; font-size: 0.7rem; color: #666; font-weight: 700; }
-        .ampersand { font-size: 25px; color: var(--royal-gold); -webkit-text-fill-color: var(--royal-gold); }
-        .invite-msg { font-size: 0.8rem; margin: 10px 0; font-style: italic; color: #444; }
+        .header-text { font-family: 'Cinzel', serif; letter-spacing: 2px; font-size: 0.75rem; color: #666; font-weight: 700; }
+        .ampersand { font-size: 28px; color: var(--royal-gold); -webkit-text-fill-color: var(--royal-gold); }
+        .invite-msg { font-size: 0.85rem; margin: 10px 0; font-style: italic; color: #444; }
 
-        /* Date Section */
-        .month-year { font-family: 'Cinzel', serif; letter-spacing: 4px; font-weight: bold; font-size: 0.9rem; }
+        .month-year { font-family: 'Cinzel', serif; letter-spacing: 4px; font-weight: bold; font-size: 0.95rem; }
         .date-row { display: flex; justify-content: center; align-items: center; gap: 10px; margin: 8px 0; }
-        .big-date { font-family: 'Cinzel', serif; font-size: 2.5rem; border-left: 2px solid var(--royal-gold); border-right: 2px solid var(--royal-gold); padding: 0 15px; color: var(--bottle-green); font-weight: 700; }
-        .time-info { font-size: 0.7rem; font-family: 'Cinzel'; font-weight: bold; color: var(--bottle-green); }
+        .big-date { font-family: 'Cinzel', serif; font-size: 2.6rem; border-left: 2px solid var(--royal-gold); border-right: 2px solid var(--royal-gold); padding: 0 15px; color: var(--bottle-green); font-weight: 700; }
+        .time-info { font-size: 0.75rem; font-family: 'Cinzel'; font-weight: bold; color: var(--bottle-green); }
 
-        .venue { font-size: 0.8rem; line-height: 1.4; color: #333; margin: 15px 0; }
+        .venue { font-size: 0.85rem; line-height: 1.4; color: #333; margin: 15px 0; }
         .venue b { font-family: 'Cinzel', serif; display: block; font-size: 1.1rem; margin-bottom: 5px; color: var(--bottle-green); }
 
-        /* Countdown */
         .countdown { display: flex; justify-content: center; gap: 8px; margin-bottom: 15px; }
-        .unit { background: var(--bottle-green); color: white; padding: 8px; min-width: 60px; border-radius: 10px; border: 1px solid var(--royal-gold); }
-        .unit span { font-size: 1.1rem; font-weight: bold; color: var(--royal-gold); display: block; }
-        .unit label { font-size: 0.5rem; text-transform: uppercase; color: var(--soft-gold); }
+        .unit { background: var(--bottle-green); color: white; padding: 8px; min-width: 65px; border-radius: 10px; border: 1px solid var(--royal-gold); }
+        .unit span { font-size: 1.2rem; font-weight: bold; color: var(--royal-gold); display: block; }
+        .unit label { font-size: 0.55rem; text-transform: uppercase; color: var(--soft-gold); }
 
         .btn-box { margin-bottom: 12px; }
         .btn {
             background: var(--bottle-green);
             color: var(--soft-gold);
-            padding: 10px 25px;
+            padding: 12px 28px;
             text-decoration: none;
             font-family: 'Cinzel', serif;
-            font-size: 0.75rem;
+            font-size: 0.8rem;
             font-weight: bold;
             border: 1.5px solid var(--royal-gold);
             border-radius: 4px;
@@ -138,15 +143,15 @@
 
         iframe {
             width: 100%;
-            height: 140px;
+            height: 150px;
             border: 2px solid var(--royal-gold);
             border-radius: 10px;
         }
 
-        @media (max-height: 700px) {
-            .content-card { padding: 15px; }
-            .names { font-size: 40px; }
-            iframe { height: 110px; }
+        /* Adjusts for very small phones like SE */
+        @media (max-width: 360px) {
+            .names { font-size: 38px; }
+            .content-card { padding: 15px 10px; }
         }
     </style>
 </head>
@@ -163,9 +168,11 @@
             </div>
             
             <div class="animate-text delay-1">
-                <h1 class="names">
-                    <span>Kavya <span class="ampersand">&</span> Vineeth</span>
-                </h1>
+                <div class="names-container">
+                    <h1 class="names">
+                        Kavya <span class="ampersand">&</span> Vineeth
+                    </h1>
+                </div>
             </div>
 
             <div class="animate-text delay-2">
@@ -195,12 +202,11 @@
             </div>
 
             <div class="btn-box animate-text delay-6">
-                <a href="https://www.google.com/maps/dir/?api=1&destination=10.089663,76.3810593" 
-                   target="_blank" class="btn">Get Directions</a>
+                <a href="https://maps.app.goo.gl/9mS7yG5Yy6U2Z6U7" target="_blank" class="btn">Get Directions</a>
             </div>
 
             <div class="animate-text delay-7">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3928.3243170701046!2d76.37848437503212!3d10.089663022037191!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b08090063cf1ed5%3A0x6fcee9e911dcbd1d!2sJoy%20Memorial%20Parish%20Hall%20(%20St.%20Joseph's%20Church%20Parish%20Hall)!5e0!3m2!1sen!2sin!4v1712411500000!5m2!1sen!2sin" allowfullscreen="" loading="lazy"></iframe>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3928.6!2d76.3!3d10.1!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTDCsDA2JzAwLjAiTiA3NsKwMTgnMDAuMCJF!5e0!3m2!1sen!2sin!4v1620000000000!5m2!1sen!2sin" allowfullscreen="" loading="lazy"></iframe>
             </div>
         </main>
     </div>
