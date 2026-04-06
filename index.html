@@ -7,12 +7,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cinzel:wght@400;700&family=Lora:wght@400;500&display=swap" rel="stylesheet">
     <style>
         :root {
-            /* VIBRANT & COLORFUL PALETTE */
-            --vibrant-gold: #c6a059;   /* Richer gold */
-            --deep-maroon: #7b1414;    /* Primary accent color */
-            --cream-bg-soft: rgba(253, 245, 230, 0.85); /* Semi-transparent cream for the card */
-            --text-dark: #331a00;       /* Darker brown for readability */
-            --highlight-blue: #004d66; /* Secondary accent color (subtle deep blue) */
+            --vibrant-gold: #c6a059;
+            --deep-maroon: #7b1414;
+            --cream-bg-soft: rgba(253, 245, 230, 0.85);
+            --text-dark: #331a00;
+            --highlight-blue: #004d66;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -23,47 +22,29 @@
             font-family: 'Lora', serif;
             color: var(--text-dark);
             overflow-x: hidden;
-            /* BACKGROUND IMAGE INTEGRATION */
-            background-color: #fdf5e6; /* Fallback cream */
-            background-image: url('bg.png'); /* The user's provided background */
+            background-color: #fdf5e6;
+            background-image: url('bg.png');
             background-size: cover;
             background-position: center;
-            background-attachment: fixed; /* Parallax effect */
+            background-attachment: fixed;
         }
 
-        /* The Gold Frame - Keep fixed */
-        .border-frame {
-            position: fixed;
-            top: 15px;
-            left: 15px;
-            right: 15px;
-            bottom: 15px;
-            border: 3px solid var(--vibrant-gold);
-            pointer-events: none;
-            z-index: 10;
-        }
+        /* Outer outline removed as requested */
 
-        /* ANIMATED BACKGROUND ILLUSTRATIONS 
-           Simulating vibrant floral elements moving subtly 
-        */
         .animated-bg-overlay {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
-            z-index: 1; /* Behind content, in front of bg.png */
+            z-index: 1;
             overflow: hidden;
             pointer-events: none;
         }
 
         .flower {
             position: absolute;
-            background-size: contain;
-            background-repeat: no-repeat;
             opacity: 0.7;
-            /* Using CSS gradients to simulate colourful, abstract floral shapes */
             border-radius: 50% 20% 50% 20%;
         }
 
-        /* Flower 1 (Vibrant Pink/Maroon) - Top Left */
         .flower-1 {
             width: 300px; height: 300px;
             top: -50px; left: -50px;
@@ -71,7 +52,6 @@
             animation: floatFlower1 20s infinite ease-in-out;
         }
 
-        /* Flower 2 (Golden Yellow) - Bottom Right */
         .flower-2 {
             width: 250px; height: 250px;
             bottom: 20px; right: -80px;
@@ -80,7 +60,6 @@
             border-radius: 20% 50% 20% 50%;
         }
 
-        /* Flower 3 (Deep Blue) - Mid Right */
         .flower-3 {
             width: 150px; height: 150px;
             top: 40%; right: -50px;
@@ -88,7 +67,6 @@
             animation: floatFlower3 18s infinite ease-in-out;
         }
 
-        /* Keyframes for animations */
         @keyframes floatFlower1 {
             0%, 100% { transform: translate(0, 0) rotate(0deg) scale(1); }
             50% { transform: translate(30px, 20px) rotate(5deg) scale(1.05); }
@@ -102,7 +80,6 @@
             50% { transform: translate(15px, 60px) rotate(12deg) scale(1.1); }
         }
 
-        /* Main content section */
         .main-wrapper {
             min-height: 100vh;
             width: 100%;
@@ -110,11 +87,10 @@
             justify-content: center;
             align-items: center;
             position: relative;
-            padding: 20px;
-            z-index: 5; /* In front of animated flowers */
+            padding: 40px 20px;
+            z-index: 5;
         }
 
-        /* The Content Card - Made semi-transparent and colorful */
         .content-card {
             width: 100%;
             max-width: 800px;
@@ -123,12 +99,11 @@
             z-index: 5;
             background: var(--cream-bg-soft);
             border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(123, 20, 20, 0.15); /* Maroon tinted shadow */
-            border: 1px solid rgba(198, 160, 89, 0.3); /* Soft gold border */
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(198, 160, 89, 0.3);
             position: relative;
         }
 
-        /* Decorative header/footer icons on card */
         .card-decor {
             position: absolute;
             font-size: 30px;
@@ -148,7 +123,6 @@
             color: var(--highlight-blue);
         }
 
-        /* Names made VERY colorful and vibrant */
         .names {
             font-family: 'Great Vibes', cursive;
             font-size: clamp(70px, 12vw, 110px);
@@ -157,7 +131,6 @@
             background: linear-gradient(45deg, var(--deep-maroon) 30%, #e74c3c 60%, var(--vibrant-gold) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            /* Fallback for browsers that don't support text-fill */
             color: var(--deep-maroon);
             display: inline-block;
         }
@@ -166,7 +139,7 @@
             font-size: 50px;
             display: block;
             margin: 15px 0;
-            color: var(--vibrant-gold); /* Keep & gold */
+            color: var(--vibrant-gold);
             -webkit-text-fill-color: var(--vibrant-gold);
         }
 
@@ -178,7 +151,6 @@
             color: var(--text-dark);
         }
 
-        /* Date Section - enhanced with color */
         .month-year {
             font-family: 'Cinzel', serif;
             letter-spacing: 7px;
@@ -219,7 +191,6 @@
             color: var(--deep-maroon);
         }
 
-        /* Venue */
         .venue {
             margin-top: 50px;
             font-size: 20px;
@@ -235,7 +206,6 @@
             color: var(--deep-maroon);
         }
 
-        /* Countdown - MADE COLORFUL */
         .countdown {
             display: flex;
             justify-content: center;
@@ -244,7 +214,6 @@
         }
 
         .unit {
-            /* Background uses deep maroon, highlighting numbers */
             background: var(--deep-maroon);
             color: white;
             padding: 15px;
@@ -257,7 +226,7 @@
             font-size: 32px; 
             font-weight: bold; 
             display: block; 
-            color: var(--vibrant-gold); /* Golden numbers */
+            color: var(--vibrant-gold);
         }
         .unit label { 
             font-size: 12px; 
@@ -266,7 +235,6 @@
             color: rgba(255,255,255,0.8);
         }
 
-        /* Buttons - COLORFUL MAROON */
         .btn-group {
             margin-top: 40px;
             display: flex;
@@ -306,7 +274,6 @@
             border-radius: 8px;
         }
 
-        /* Responsive adjustments for the card padding */
         @media (max-width: 600px) {
             .content-card { padding: 60px 20px; }
             .date-row { gap: 10px; flex-wrap: wrap; }
@@ -319,8 +286,6 @@
     </style>
 </head>
 <body>
-
-    <div class="border-frame"></div>
 
     <div class="animated-bg-overlay">
         <div class="flower flower-1"></div>
@@ -372,11 +337,11 @@
             </div>
 
             <div class="btn-group">
-                <a href="https://maps.app.goo.gl/YourValidMapLinkHere" target="_blank" class="btn">Get Directions</a>
+                <a href="https://www.google.com/maps/search/?api=1&query=10.0894368,76.3809619" target="_blank" class="btn">Get Directions</a>
             </div>
 
             <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3928.6!2d76.35!3d10.1!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTDCsDA2JzAwLjAiTiA3NsKwMjEnMDAuMCJF!5e0!3m2!1sen!2sin!4v1715000000000!5m2!1sen!2sin" 
+                src="https://maps.google.com/maps?q=10.0894368,76.3809619&z=17&output=embed" 
                 allowfullscreen="" loading="lazy" title="Sanjo Auditorium Location">
             </iframe>
 
@@ -391,7 +356,6 @@
             const now = new Date().getTime();
             const diff = target - now;
 
-            // If the date has passed
             if (diff < 0) {
                 document.querySelector(".countdown").innerHTML = "<div class='time-info'>Happening Now!</div>";
                 return;
@@ -408,7 +372,7 @@
             document.getElementById("secs").innerText = s.toString().padStart(2, '0');
         }
         setInterval(updateTimer, 1000);
-        updateTimer(); // Run once immediately
+        updateTimer();
     </script>
 </body>
 </html>
