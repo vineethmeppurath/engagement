@@ -11,34 +11,34 @@
             --bottle-green: #00332a;
             --royal-gold: #d4af37;
             --soft-gold: #f1d38e;
-            --cream-bg: rgba(255, 253, 240, 0.90);
+            --cream-bg: rgba(255, 253, 240, 0.94);
             --text-dark: #00221c;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
-        /* --- IMMERSIVE FIXED BACKGROUND WITH KEN BURNS EFFECT --- */
         body, html {
             height: 100%; width: 100%;
             font-family: 'Lora', serif;
             color: var(--text-dark);
-            overflow: hidden; /* Fixes screen for mobile */
-            background-color: #fdf5e6;
+            overflow: hidden; 
+            background-color: #00332a;
         }
 
+        /* --- BACKGROUND FIX --- */
         .animated-bg {
             position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background-image: url('bg.png');
+            top: 0; left: 0; 
+            width: 100%; height: 100%;
+            background-image: url('bg.png'); 
             background-size: cover;
             background-position: center;
             z-index: -1;
             animation: slowPan 25s infinite alternate ease-in-out;
         }
 
-        @keyframes slowPan { from { transform: scale(1); } to { transform: scale(1.1); } }
+        @keyframes slowPan { from { transform: scale(1); } to { transform: scale(1.15); } }
 
-        /* --- RESPONSIVE CONTAINER --- */
         .main-wrapper {
             height: 100vh;
             width: 100%;
@@ -46,96 +46,107 @@
             justify-content: center;
             align-items: center;
             padding: 10px;
-            z-index: 5;
             position: relative;
         }
 
         .content-card {
             width: 100%;
-            max-width: 500px;
-            max-height: 98vh; /* Keeps card within view */
+            max-width: 450px;
+            max-height: 96vh;
             text-align: center;
-            padding: 30px 20px;
+            padding: 25px 20px;
             background: var(--cream-bg);
             border-radius: 20px;
-            box-shadow: 0 15px 45px rgba(0, 34, 28, 0.2);
+            box-shadow: 0 15px 45px rgba(0, 0, 0, 0.4);
             border: 1.5px solid var(--royal-gold);
-            overflow: hidden; /* Prevent scrolling inside card unless absolutely necessary */
-            animation: cardEntrance 1.2s ease-out;
             position: relative;
         }
 
-        @keyframes cardEntrance { from { opacity: 0; transform: scale(0.96); } to { opacity: 1; transform: scale(1); } }
+        /* --- STAGGERED ENTRY ANIMATION --- */
+        .animate-text {
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
 
-        .om { font-size: 30px; color: var(--bottle-green); margin-bottom: 3px; }
-        .header-text { font-family: 'Cinzel', serif; letter-spacing: 2px; font-size: 0.7rem; color: #666; font-weight: 700; }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(25px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
 
-        /* --- CRITICAL FIX FOR SCRIPT NAMES CLIPPING --- */
+        /* Sequential Delays */
+        .delay-1 { animation-delay: 1s; }
+        .delay-2 { animation-delay: 2s; }
+        .delay-3 { animation-delay: 3s; }
+        .delay-4 { animation-delay: 4s; }
+        .delay-5 { animation-delay: 5s; }
+        .delay-6 { animation-delay: 6s; }
+        .delay-7 { animation-delay: 7s; }
+
+        /* --- CONTINUOUS ZOOM (BREATHING) ANIMATION --- */
         .names {
             font-family: 'Great Vibes', cursive;
-            font-size: clamp(50px, 12vw, 68px);
-            line-height: 1.5; /* Large line height ensures script loops aren't clipped top/bottom */
+            font-size: clamp(45px, 11vw, 60px);
+            line-height: 1.6;
             background: linear-gradient(45deg, var(--bottle-green), var(--royal-gold));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             display: inline-block;
-            overflow: visible; /* Standard visible just in case */
+            margin: 5px 0;
+            /* Infinite Pulse Effect */
+            animation: pulse 3s infinite ease-in-out;
         }
 
-        .names span { display: inline-block; padding: 15px 10px; /* Crucial padding prevents clipping on the left and right sides */ }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.08); }
+            100% { transform: scale(1); }
+        }
 
+        .om { font-size: 28px; color: var(--bottle-green); margin-bottom: 5px; }
+        .header-text { font-family: 'Cinzel', serif; letter-spacing: 2px; font-size: 0.7rem; color: #666; font-weight: 700; }
         .ampersand { font-size: 25px; color: var(--royal-gold); -webkit-text-fill-color: var(--royal-gold); }
+        .invite-msg { font-size: 0.8rem; margin: 10px 0; font-style: italic; color: #444; }
 
-        .invite-msg { font-size: 0.8rem; margin: 10px 0; font-style: italic; color: #666; }
-
-        /* --- COMPACT DATE & VENUE --- */
+        /* Date Section */
         .month-year { font-family: 'Cinzel', serif; letter-spacing: 4px; font-weight: bold; font-size: 0.9rem; }
-        .date-row { display: flex; justify-content: center; align-items: center; gap: 10px; margin: 10px 0; }
-        .big-date { font-family: 'Cinzel', serif; font-size: 2.8rem; border-left: 2px solid var(--royal-gold); border-right: 2px solid var(--royal-gold); padding: 0 15px; color: var(--bottle-green); font-weight: 700; }
+        .date-row { display: flex; justify-content: center; align-items: center; gap: 10px; margin: 8px 0; }
+        .big-date { font-family: 'Cinzel', serif; font-size: 2.5rem; border-left: 2px solid var(--royal-gold); border-right: 2px solid var(--royal-gold); padding: 0 15px; color: var(--bottle-green); font-weight: 700; }
         .time-info { font-size: 0.7rem; font-family: 'Cinzel'; font-weight: bold; color: var(--bottle-green); }
 
-        /* --- INTEGRATED SYRO-MALABAR CHURCH ADDRESS --- */
-        .venue { font-size: 0.8rem; line-height: 1.4; color: #555; margin-bottom: 20px;}
-        .venue b { font-family: 'Cinzel', serif; display: block; font-size: 1.2rem; margin-bottom: 5px; color: var(--bottle-green); }
+        .venue { font-size: 0.8rem; line-height: 1.4; color: #333; margin: 15px 0; }
+        .venue b { font-family: 'Cinzel', serif; display: block; font-size: 1.1rem; margin-bottom: 5px; color: var(--bottle-green); }
 
-        /* --- COMPACT COUNTDOWN --- */
-        .countdown { display: flex; justify-content: center; gap: 8px; margin-bottom: 25px; }
-        .unit { background: var(--bottle-green); color: white; padding: 10px; min-width: 65px; border-radius: 10px; border: 1px solid var(--royal-gold); }
-        .unit span { font-size: 1.3rem; font-weight: bold; color: var(--royal-gold); display: block; }
-        .unit label { font-size: 0.5rem; text-transform: uppercase; color: var(--soft-gold); letter-spacing: 1px; }
+        /* Countdown */
+        .countdown { display: flex; justify-content: center; gap: 8px; margin-bottom: 15px; }
+        .unit { background: var(--bottle-green); color: white; padding: 8px; min-width: 60px; border-radius: 10px; border: 1px solid var(--royal-gold); }
+        .unit span { font-size: 1.1rem; font-weight: bold; color: var(--royal-gold); display: block; }
+        .unit label { font-size: 0.5rem; text-transform: uppercase; color: var(--soft-gold); }
 
-        /* --- MAP & BUTTONS --- */
-        .btn-box { margin-bottom: 15px; }
+        .btn-box { margin-bottom: 12px; }
         .btn {
             background: var(--bottle-green);
             color: var(--soft-gold);
-            padding: 12px 30px;
+            padding: 10px 25px;
             text-decoration: none;
             font-family: 'Cinzel', serif;
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             font-weight: bold;
             border: 1.5px solid var(--royal-gold);
             border-radius: 4px;
             display: inline-block;
-            transition: 0.3s;
         }
-        .btn:hover { background: #00221c; transform: translateY(-2px); box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
 
-        /* Compact map iframe */
         iframe {
             width: 100%;
-            height: 160px;
+            height: 140px;
             border: 2px solid var(--royal-gold);
             border-radius: 10px;
         }
 
-        /* Responsive Tweaks for Smaller Heights */
         @media (max-height: 700px) {
-            .card { padding: 20px 15px; }
-            .names { font-size: 45px; }
-            .om { font-size: 25px; }
-            .big-date { font-size: 2.2rem; }
-            iframe { height: 130px; }
+            .content-card { padding: 15px; }
+            .names { font-size: 40px; }
+            iframe { height: 110px; }
         }
     </style>
 </head>
@@ -170,26 +181,26 @@
                 </div>
             </div>
 
-            <div class="venue">
+            <div class="venue animate-text delay-4">
                 <b>AT SANJO AUDITORIUM</b>
                 Opp. St. Joseph’s Syro-Malabar Church,<br>
                 Chunangamvely, Aluva
             </div>
 
-            <div id="countdown" class="countdown">
+            <div id="countdown" class="countdown animate-text delay-5">
                 <div class="unit"><span id="days">00</span><label>Days</label></div>
                 <div class="unit"><span id="hours">00</span><label>Hrs</label></div>
                 <div class="unit"><span id="mins">00</span><label>Min</label></div>
                 <div class="unit"><span id="secs">00</span><label>Sec</label></div>
             </div>
 
-            <div class="btn-box">
+            <div class="btn-box animate-text delay-6">
                 <a href="https://www.google.com/maps/dir/?api=1&destination=10.089663,76.3810593" 
                    target="_blank" class="btn">Get Directions</a>
             </div>
 
-            <div class="map-container animate delay-3">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3928.3475!2d76.3809619!3d10.0894368!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTDCsDA1JzIyLjAiTiA3NsKwMjInNTEuNSJF!5e0!3m2!1sen!2sin!4v1640000000000"></iframe>
+            <div class="animate-text delay-7">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3928.3243170701046!2d76.37848437503212!3d10.089663022037191!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b08090063cf1ed5%3A0x6fcee9e911dcbd1d!2sJoy%20Memorial%20Parish%20Hall%20(%20St.%20Joseph's%20Church%20Parish%20Hall)!5e0!3m2!1sen!2sin!4v1712411500000!5m2!1sen!2sin" allowfullscreen="" loading="lazy"></iframe>
             </div>
         </main>
     </div>
@@ -202,7 +213,7 @@
             const diff = targetDate - now;
 
             if (diff < 0) {
-                document.getElementById("countdown").innerHTML = "<div class='venue'><b> HAPPENING NOW! </b></div>";
+                document.getElementById("countdown").innerHTML = "<b>HAPPENING NOW!</b>";
                 return;
             }
 
