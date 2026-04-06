@@ -128,13 +128,19 @@
         .names {
             font-family: 'Great Vibes', cursive;
             font-size: clamp(75px, 12vw, 115px);
-            line-height: 1.1;
-            margin: 20px 0;
+            line-height: 1.4; /* Increased line height to prevent top/bottom clipping */
+            margin: 10px 0;
+            padding: 20px 30px; /* Added horizontal and vertical padding to prevent side clipping */
             background: linear-gradient(45deg, var(--bottle-green), var(--forest-green), var(--royal-gold));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            display: inline-block;
+            display: block; /* Changed to block to allow padding to take effect */
+            width: fit-content; /* Centers the block based on text width */
+            margin-left: auto;
+            margin-right: auto;
             animation: namePulse 4s infinite ease-in-out;
+            /* Added overflow visible just in case */
+            overflow: visible; 
         }
 
         @keyframes namePulse {
