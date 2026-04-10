@@ -11,57 +11,58 @@
             --bottle-green: #00332a;
             --royal-gold: #d4af37;
             --soft-gold: #f1d38e;
-            --cream-bg: rgba(255, 253, 240, 0.94);
+            --cream-bg: rgba(255, 253, 240, 0.96);
             --text-dark: #00221c;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body, html {
-            height: 100%; width: 100%;
+            width: 100%;
             font-family: 'Lora', serif;
             color: var(--text-dark);
-            overflow: hidden; 
-            background-color: #00332a;
+            background-color: var(--bottle-green);
+            overflow-x: hidden;
         }
 
         .animated-bg {
-            position: fixed;
-            top: 0; left: 0; 
-            width: 100%; height: 100%;
-            background-image: url('bg.png'); 
-            background-size: cover;
-            background-position: center;
-            z-index: -1;
-            animation: slowPan 25s infinite alternate ease-in-out;
-        }
+          position: fixed;
+          top: 0;
+          left: 0; 
+          width: 100vw; 
+          height: 100vh;
+          background-image: url('bg.png') !important; /* Added !important to override other styles */
+          background-size: cover;
+          background-position: center center;
+          background-repeat: no-repeat;
+          z-index: -1;
+          animation: slowPan 25s infinite alternate ease-in-out;
+      }
 
         @keyframes slowPan { from { transform: scale(1); } to { transform: scale(1.15); } }
 
         .main-wrapper {
-            height: 100vh;
+            min-height: 100vh;
             width: 100%;
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 10px;
+            padding: 40px 15px; 
             position: relative;
         }
 
         .content-card {
-            width: 95%;
+            width: 100%;
             max-width: 420px;
-            max-height: 96vh;
             text-align: center;
-            padding: 25px 20px;
+            padding: 35px 20px;
             background: var(--cream-bg);
             border-radius: 20px;
-            box-shadow: 0 15px 45px rgba(0, 0, 0, 0.4);
+            box-shadow: 0 15px 45px rgba(0, 0, 0, 0.5);
             border: 1.5px solid var(--royal-gold);
             position: relative;
         }
 
-        /* --- STAGGERED ENTRY ANIMATION --- */
         .animate-text {
             opacity: 0;
             animation: fadeInUp 0.8s ease-out forwards;
@@ -72,86 +73,86 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        .delay-1 { animation-delay: 0.6s; }
-        .delay-2 { animation-delay: 1.2s; }
-        .delay-3 { animation-delay: 1.8s; }
-        .delay-4 { animation-delay: 2.4s; }
-        .delay-5 { animation-delay: 3.0s; }
-        .delay-6 { animation-delay: 3.6s; }
-        .delay-7 { animation-delay: 4.2s; }
+        .delay-1 { animation-delay: 0.4s; }
+        .delay-2 { animation-delay: 0.8s; }
+        .delay-3 { animation-delay: 1.2s; }
+        .delay-4 { animation-delay: 1.6s; }
+        .delay-5 { animation-delay: 2.0s; }
+        .delay-6 { animation-delay: 2.4s; }
+        .delay-7 { animation-delay: 2.8s; }
 
-        /* --- FIXED SIZE & NO-CROP NAMES --- */
         .names-container {
             width: 100%;
-            overflow: visible; /* Ensures script loops aren't cut by parent */
-            padding: 15px 0;   /* Vertical room for ascenders/descenders */
+            padding: 15px 5px; 
+            margin: 5px 0;
+            overflow: visible; 
             display: block;
         }
 
         .names {
             font-family: 'Great Vibes', cursive;
-            /* Constant size for consistency */
-            font-size: 48px; 
-            line-height: 1.2;
+            font-size: clamp(38px, 10vw, 50px); 
+            line-height: 1.4; 
             background: linear-gradient(45deg, var(--bottle-green), var(--royal-gold));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             display: inline-block;
-            white-space: nowrap; /* Prevents names from breaking into two lines */
-            padding: 0 20px;    /* Horizontal room to prevent edge clipping */
+            padding: 0 15px; 
             animation: pulse 3s infinite ease-in-out;
-            position: relative;
         }
 
         @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.04); } /* Gentle zoom */
-            100% { transform: scale(1); }
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.03); }
         }
 
-        .om { font-size: 28px; color: var(--bottle-green); margin-bottom: 5px; }
+        .om { font-size: 26px; color: var(--bottle-green); margin-bottom: 8px; }
         .header-text { font-family: 'Cinzel', serif; letter-spacing: 2px; font-size: 0.75rem; color: #666; font-weight: 700; }
-        .ampersand { font-size: 28px; color: var(--royal-gold); -webkit-text-fill-color: var(--royal-gold); }
-        .invite-msg { font-size: 0.85rem; margin: 10px 0; font-style: italic; color: #444; }
+        .ampersand { font-size: 30px; color: var(--royal-gold); -webkit-text-fill-color: var(--royal-gold); }
+        .invite-msg { font-size: 0.85rem; margin: 15px 0; font-style: italic; color: #444; line-height: 1.6; }
 
-        .month-year { font-family: 'Cinzel', serif; letter-spacing: 4px; font-weight: bold; font-size: 0.95rem; }
-        .date-row { display: flex; justify-content: center; align-items: center; gap: 10px; margin: 8px 0; }
-        .big-date { font-family: 'Cinzel', serif; font-size: 2.6rem; border-left: 2px solid var(--royal-gold); border-right: 2px solid var(--royal-gold); padding: 0 15px; color: var(--bottle-green); font-weight: 700; }
-        .time-info { font-size: 0.75rem; font-family: 'Cinzel'; font-weight: bold; color: var(--bottle-green); }
+        .month-year { font-family: 'Cinzel', serif; letter-spacing: 4px; font-weight: bold; font-size: 1rem; color: var(--bottle-green); }
+        .date-row { display: flex; justify-content: center; align-items: center; gap: 12px; margin: 12px 0; }
+        .big-date { font-family: 'Cinzel', serif; font-size: 2.6rem; border-left: 2.5px solid var(--royal-gold); border-right: 2.5px solid var(--royal-gold); padding: 0 18px; color: var(--bottle-green); font-weight: 700; line-height: 1; }
+        .time-info { font-size: 0.75rem; font-family: 'Cinzel'; font-weight: bold; color: var(--bottle-green); width: 85px; }
 
-        .venue { font-size: 0.85rem; line-height: 1.4; color: #333; margin: 15px 0; }
-        .venue b { font-family: 'Cinzel', serif; display: block; font-size: 1.1rem; margin-bottom: 5px; color: var(--bottle-green); }
+        .venue { font-size: 0.85rem; line-height: 1.5; color: #333; margin: 20px 0; }
+        .venue b { font-family: 'Cinzel', serif; display: block; font-size: 1.1rem; margin-bottom: 6px; color: var(--bottle-green); }
 
-        .countdown { display: flex; justify-content: center; gap: 8px; margin-bottom: 15px; }
-        .unit { background: var(--bottle-green); color: white; padding: 8px; min-width: 65px; border-radius: 10px; border: 1px solid var(--royal-gold); }
+        .countdown { display: flex; justify-content: center; gap: 8px; margin-bottom: 25px; flex-wrap: wrap; }
+        .unit { background: var(--bottle-green); color: white; padding: 8px 5px; min-width: 65px; border-radius: 10px; border: 1px solid var(--royal-gold); }
         .unit span { font-size: 1.2rem; font-weight: bold; color: var(--royal-gold); display: block; }
-        .unit label { font-size: 0.55rem; text-transform: uppercase; color: var(--soft-gold); }
+        .unit label { font-size: 0.55rem; text-transform: uppercase; color: var(--soft-gold); letter-spacing: 1px; }
 
-        .btn-box { margin-bottom: 12px; }
+        .btn-box { margin-bottom: 18px; }
         .btn {
             background: var(--bottle-green);
             color: var(--soft-gold);
-            padding: 12px 28px;
+            padding: 14px 28px;
             text-decoration: none;
             font-family: 'Cinzel', serif;
             font-size: 0.8rem;
             font-weight: bold;
             border: 1.5px solid var(--royal-gold);
-            border-radius: 4px;
+            border-radius: 6px;
             display: inline-block;
+            transition: 0.3s ease;
         }
 
-        iframe {
+        .map-container {
             width: 100%;
-            height: 150px;
+            height: 180px;
             border: 2px solid var(--royal-gold);
-            border-radius: 10px;
+            border-radius: 12px;
+            overflow: hidden;
+            margin-top: 10px;
         }
+        iframe { width: 100%; height: 100%; border: none; }
 
-        /* Adjusts for very small phones like SE */
-        @media (max-width: 360px) {
-            .names { font-size: 38px; }
-            .content-card { padding: 15px 10px; }
+        @media (max-width: 380px) {
+            .names { font-size: 36px; }
+            .content-card { padding: 25px 15px; }
+            .big-date { font-size: 2.2rem; padding: 0 12px; }
         }
     </style>
 </head>
@@ -166,7 +167,7 @@
                 <div class="om">ॐ</div>
                 <p class="header-text">Together with their families</p>
             </div>
-            
+
             <div class="animate-text delay-1">
                 <div class="names-container">
                     <h1 class="names">
@@ -190,7 +191,7 @@
 
             <div class="venue animate-text delay-4">
                 <b>AT SANJO AUDITORIUM</b>
-                Opp. St. Joseph’s Syro-Malabar Church,<br>
+                Opp. St. Joseph’s Church,<br>
                 Chunangamvely, Aluva
             </div>
 
@@ -202,11 +203,17 @@
             </div>
 
             <div class="btn-box animate-text delay-6">
-                <a href="https://maps.app.goo.gl/9mS7yG5Yy6U2Z6U7" target="_blank" class="btn">Get Directions</a>
+                <a href="https://www.google.com/maps/dir/?api=1&destination=10.089663,76.3810593" target="_blank" class="btn">Get Directions</a>
             </div>
 
             <div class="animate-text delay-7">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3928.6!2d76.3!3d10.1!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTDCsDA2JzAwLjAiTiA3NsKwMTgnMDAuMCJF!5e0!3m2!1sen!2sin!4v1620000000000!5m2!1sen!2sin" allowfullscreen="" loading="lazy"></iframe>
+                <div class="map-container">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3928.529202537233!2d76.3784843753238!3d10.089668371302832!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b08090063cf1ed7%3A0x6fce48e911dcbd1d!2sJoy%20Memorial%20Parish%20Hall!5e0!3m2!1sen!2sin!4v1712739600000!5m2!1sen!2sin" 
+                        allowfullscreen="" 
+                        loading="lazy">
+                    </iframe>
+                </div>
             </div>
         </main>
     </div>
@@ -219,7 +226,7 @@
             const diff = targetDate - now;
 
             if (diff < 0) {
-                document.getElementById("countdown").innerHTML = "<b>HAPPENING NOW!</b>";
+                document.getElementById("countdown").innerHTML = "<b style='color:var(--bottle-green)'>HAPPENING NOW!</b>";
                 return;
             }
 
