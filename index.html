@@ -25,43 +25,7 @@
             overflow-x: hidden;
         }
 
-        /* --- LOADING SCREEN --- */
-        /* #loader {
-            position: fixed;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            background-color: var(--bottle-green);
-            background-image: url('bg.png');
-            background-size: cover;
-            background-position: center center;
-            background-repeat: no-repeat;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 100;
-            transition: opacity 0.8s ease;
-            text-align: center;
-        }
 
-        .loader-text {
-            /* font-family: 'Great Vibes', cursive; */
-            /* font-family: 'Sinethar', 'Sinethar Regular', cursive;
-            color: gold;
-            font-size: clamp(2.5rem, 10vw, 4rem); 
-            line-height: 1.1;
-            letter-spacing: 2px;
-            animation: pulse-gold 2s infinite ease-in-out;
-            padding: 20px;
-            text-align: center;
-            font-weight: bold; /* or 700 */
-        /* }
-
-        @keyframes pulse-gold {
-            0%, 100% { opacity: 0.6; transform: scale(0.95); }
-            50% { opacity: 1; transform: scale(1.05); }
-        }
-
-        .fade-out { opacity: 0; pointer-events: none; } */ */ */
 
         /* --- BACKGROUND & CONTENT --- */
         .animated-bg {
@@ -111,14 +75,14 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        .delay-0 { animation-delay: 2.2s; }
-        .delay-1 { animation-delay: 2.6s; }
-        .delay-2 { animation-delay: 3.0s; }
-        .delay-3 { animation-delay: 3.4s; }
-        .delay-4 { animation-delay: 3.8s; }
-        .delay-5 { animation-delay: 4.2s; }
-        .delay-6 { animation-delay: 4.6s; }
-        .delay-7 { animation-delay: 5.0s; }
+        .delay-0 { animation-delay: 0.4s; }
+        .delay-1 { animation-delay: 0.8s; }
+        .delay-2 { animation-delay: 1.2s; }
+        .delay-3 { animation-delay: 1.6s; }
+        .delay-4 { animation-delay: 2.0s; }
+        .delay-5 { animation-delay: 2.4s; }
+        .delay-6 { animation-delay: 2.8s; }
+        .delay-7 { animation-delay: 3.2s; }
 
         .om { 
             margin-bottom: 8px; 
@@ -221,26 +185,21 @@
 </head>
 <body>
 
-    <!-- <div id="loader">
-        <div id="loader">
-        <div class="loader-text">Engagement<br>Invitation</div>
-    </div> -->
 
-    </div>
 
     <div class="animated-bg"></div>
 
     <div class="main-wrapper">
         <main class="content-card">
             
-            <div class="animate-text delay-0">
+            <div class="animate-text">
                 <!-- <div class="om">
                     <img src="ganesha.png" alt="Ganesha" class="ganesha-icon">
                 </div> -->
                 <p class="header-text">Together with their families</p>
             </div>
 
-            <div class="animate-text delay-1">
+            <div class="animate-text delay-0">
                 <div class="names-container">
                     <h1 class="names">Kavya</h1>
                     <img src="rings.png" alt="Rings" class="rings-icon">
@@ -248,11 +207,11 @@
                 </div>
             </div>
 
-            <div class="animate-text delay-2">
+            <div class="animate-text delay-1">
                 <p class="invite-msg">cordially invite you to join them<br>at their engagement ceremony on</p>
             </div>
 
-            <div class="animate-text delay-3">
+            <div class="animate-text delay-2">
                 <div class="month-year">MAY 2026</div>
                 <div class="date-row">
                     <div class="time-info">WEDNESDAY</div>
@@ -261,24 +220,24 @@
                 </div>
             </div>
 
-            <div class="venue animate-text delay-4">
+            <div class="venue animate-text delay-3">
                 <b>AT SANJO AUDITORIUM</b>
                 Opp. St. Joseph’s Church,<br>
                 Chunangamvely, Aluva
             </div>
 
-            <div id="countdown" class="countdown animate-text delay-5">
+            <div id="countdown" class="countdown animate-text delay-4">
                 <div class="unit"><span id="days">00</span><label>Days</label></div>
                 <div class="unit"><span id="hours">00</span><label>Hrs</label></div>
                 <div class="unit"><span id="mins">00</span><label>Min</label></div>
                 <div class="unit"><span id="secs">00</span><label>Sec</label></div>
             </div>
 
-            <div class="btn-box animate-text delay-6">
+            <div class="btn-box animate-text delay-5">
                 <a href="https://www.google.com/maps/dir/?api=1&destination=10.0897177,76.381047" target="_blank" class="btn">Get Directions</a>
             </div>
 
-            <div class="animate-text delay-7">
+            <div class="animate-text delay-6">
                 <div class="map-container">
                     <iframe src="https://maps.google.com/maps?q=10.0897177,76.381047&hl=en&z=17&output=embed" 
                     allowfullscreen="" 
@@ -290,12 +249,7 @@
     </div>
 
     <script>
-        // window.addEventListener('load', () => {
-        //     setTimeout(() => {
-        //         const loader = document.getElementById('loader');
-        //         loader.classList.add('fade-out');
-        //     }, 2000);
-        // });
+
 
         const targetDate = new Date("May 13, 2026 09:45:00").getTime();
 
