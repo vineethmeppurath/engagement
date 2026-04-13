@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Kavya & Vineeth - Engagement</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cinzel:wght@400;700&family=Lora:wght@400;500&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bottle-green: #085a31;
+            --royal-gold: #d1ccb0;
+            --soft-gold: #dce1e3;
+            --cream-bg: rgba(248, 250, 248, 0.85);
+            --text-dark: #042415;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body, html {
+            width: 100%;
+            font-family: 'Lora', serif;
+            color: var(--text-dark);
+            overflow-x: hidden;
+        }
+
+
+
+        /* --- BACKGROUND & CONTENT --- */
+        .animated-bg {
+            position: fixed;
+            top: 0; left: 0; 
+            width: 100vw; height: 100vh;
+            background-color: var(--bottle-green);
+            background-image: url('bg.png'); 
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+            z-index: -1;
+            animation: slowPan 25s infinite alternate ease-in-out;
+        }
+
+        @keyframes slowPan { from { transform: scale(1); } to { transform: scale(1.15); } }
+
+        .main-wrapper {
+            min-height: 100vh;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px 15px; 
+            position: relative;
+        }
+
+        .content-card {
+            width: 100%;
+            max-width: 420px;
+            text-align: center;
+            padding: 25px 20px;
+            background: var(--cream-bg);
+            border-radius: 20px;
+            box-shadow: 0 15px 45px rgba(0, 0, 0, 0.5);
+            border: 1.5px solid var(--royal-gold);
+            position: relative;
+        }
+
+        .animate-text {
+            opacity: 0;
+            animation: fadeInUp 1s ease-out forwards;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .delay-0 { animation-delay: 0.4s; }
+        .delay-1 { animation-delay: 0.8s; }
+        .delay-2 { animation-delay: 1.2s; }
+        .delay-3 { animation-delay: 1.6s; }
+        .delay-4 { animation-delay: 2.0s; }
+        .delay-5 { animation-delay: 2.4s; }
+        .delay-6 { animation-delay: 2.8s; }
+        .delay-7 { animation-delay: 3.2s; }
+
+        .om { 
+            margin-bottom: 8px; 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .ganesha-icon {
+            width: 50px; 
+            height: auto;
+            display: block;
+            opacity: 0.5;
+        }
+
+        .names-container {
+            width: 100%;
+            padding: 10px 5px; 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .names {
+            font-family: 'Great Vibes', cursive;
+            /* font-family: 'Sinethar', 'Sinethar Regular', cursive; */
+            font-size: clamp(34px, 10vw, 40px); 
+            line-height: 1.3; 
+            background: linear-gradient(45deg, var(--bottle-green), gold);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline-block;
+            animation: pulse 3s infinite ease-in-out;
+            padding: 5px;
+        }
+
+        .rings-icon {
+            width: 30px;
+            height: auto;
+            display: inline-block;
+            vertical-align: middle;
+            filter: drop-shadow(0px 2px 2px rgba(0,0,0,0.1));
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.03); }
+        }
+
+        .header-text { font-family: 'Cinzel', serif; letter-spacing: 2px; font-size: 0.7rem; color: #666; font-weight: 700; }
+        .invite-msg { font-size: 0.8rem; margin: 10px 0; font-style: italic; color: #444; line-height: 1.4; }
+
+        .month-year { font-family: 'Cinzel', serif; letter-spacing: 4px; font-weight: bold; font-size: 0.9rem; color: var(--bottle-green); }
+        .date-row { display: flex; justify-content: center; align-items: center; gap: 10px; margin: 8px 0; }
+        .big-date { font-family: 'Cinzel', serif; font-size: 2.4rem; border-left: 2px solid var(--royal-gold); border-right: 2px solid var(--royal-gold); padding: 0 15px; color: var(--bottle-green); font-weight: 700; line-height: 1; }
+        .time-info { font-size: 0.7rem; font-family: 'Cinzel'; font-weight: bold; color: var(--bottle-green); width: 80px; }
+
+        .venue { font-size: 0.8rem; line-height: 1.4; color: #333; margin: 15px 0; }
+        .venue b { font-family: 'Cinzel', serif; display: block; font-size: 1rem; margin-bottom: 4px; color: var(--bottle-green); }
+
+        .countdown { display: flex; justify-content: center; gap: 6px; margin-bottom: 20px; flex-wrap: wrap; }
+        .unit { background: var(--bottle-green); color: white; padding: 6px 4px; min-width: 55px; border-radius: 8px; border: 1px solid var(--royal-gold); }
+        .unit span { font-size: 1.1rem; font-weight: bold; color: var(--soft-gold); display: block; }
+        .unit label { font-size: 0.5rem; text-transform: uppercase; color: var(--soft-gold); letter-spacing: 1px; }
+
+        .btn-box { margin-bottom: 15px; }
+        .btn {
+            background: var(--bottle-green);
+            color: var(--soft-gold);
+            padding: 12px 24px;
+            text-decoration: none;
+            font-family: 'Cinzel', serif;
+            font-size: 0.75rem;
+            font-weight: bold;
+            border: 1.5px solid var(--royal-gold);
+            border-radius: 6px;
+            display: inline-block;
+            transition: 0.3s ease;
+        }
+
+        .map-container {
+            width: 100%;
+            height: 140px; 
+            border: 1.5px solid var(--royal-gold);
+            border-radius: 12px;
+            overflow: hidden;
+            margin-top: 5px;
+        }
+        iframe { width: 100%; height: 100%; border: none; }
+
+        @media (max-width: 380px) {
+            .names { font-size: 32px; }
+            .rings-icon { width: 28px; }
+            .content-card { padding: 20px 12px; }
+            .big-date { font-size: 2rem; padding: 0 10px; }
+            .map-container { height: 120px; }
+        }
+    </style>
+</head>
+<body>
+
+
+
+    <div class="animated-bg"></div>
+
+    <div class="main-wrapper">
+        <main class="content-card">
+            
+            <div class="animate-text">
+                <!-- <div class="om">
+                    <img src="ganesha.png" alt="Ganesha" class="ganesha-icon">
+                </div> -->
+                <p class="header-text">Together with their families</p>
+            </div>
+
+            <div class="animate-text delay-0">
+                <div class="names-container">
+                    <h1 class="names">Kavya</h1>
+                    <img src="rings.png" alt="Rings" class="rings-icon">
+                    <h1 class="names">Vineeth</h1>
+                </div>
+            </div>
+
+            <div class="animate-text delay-1">
+                <p class="invite-msg">cordially invite you to join them<br>at their engagement ceremony on</p>
+            </div>
+
+            <div class="animate-text delay-2">
+                <div class="month-year">MAY 2026</div>
+                <div class="date-row">
+                    <div class="time-info">WEDNESDAY</div>
+                    <div class="big-date">13</div>
+                    <div class="time-info">9:45 AM</div>
+                </div>
+            </div>
+
+            <div class="venue animate-text delay-3">
+                <b>AT SANJO AUDITORIUM</b>
+                Opp. St. Joseph’s Church,<br>
+                Chunangamvely, Aluva
+            </div>
+
+            <div id="countdown" class="countdown animate-text delay-4">
+                <div class="unit"><span id="days">00</span><label>Days</label></div>
+                <div class="unit"><span id="hours">00</span><label>Hrs</label></div>
+                <div class="unit"><span id="mins">00</span><label>Min</label></div>
+                <div class="unit"><span id="secs">00</span><label>Sec</label></div>
+            </div>
+
+            <div class="btn-box animate-text delay-5">
+                <a href="https://www.google.com/maps/dir/?api=1&destination=10.0897177,76.381047" target="_blank" class="btn">Get Directions</a>
+            </div>
+
+            <div class="animate-text delay-6">
+                <div class="map-container">
+                    <iframe src="https://maps.google.com/maps?q=10.0897177,76.381047&hl=en&z=17&output=embed" 
+                    allowfullscreen="" 
+                    loading="lazy"></iframe>
+                </div>
+            </div>
+            
+        </main>
+    </div>
+
+    <script>
+
+
+        const targetDate = new Date("May 13, 2026 09:45:00").getTime();
+
+        function updateTimer() {
+            const now = new Date().getTime();
+            const diff = targetDate - now;
+
+            if (diff < 0) {
+                document.getElementById("countdown").innerHTML = "<b style='color:var(--bottle-green)'>HAPPENING NOW!</b>";
+                return;
+            }
+
+            const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const s = Math.floor((diff % (1000 * 60)) / 1000);
+
+            document.getElementById("days").innerText = d.toString().padStart(2, '0');
+            document.getElementById("hours").innerText = h.toString().padStart(2, '0');
+            document.getElementById("mins").innerText = m.toString().padStart(2, '0');
+            document.getElementById("secs").innerText = s.toString().padStart(2, '0');
+        }
+        
+        setInterval(updateTimer, 1000);
+        updateTimer();
+    </script>
+</body>
+</html>
