@@ -26,7 +26,7 @@
         }
 
         /* --- LOADING SCREEN --- */
-        #loader {
+        /* #loader {
             position: fixed;
             top: 0; left: 0;
             width: 100%; height: 100%;
@@ -61,7 +61,7 @@
             50% { opacity: 1; transform: scale(1.05); }
         }
 
-        .fade-out { opacity: 0; pointer-events: none; }
+        .fade-out { opacity: 0; pointer-events: none; } */
 
         /* --- BACKGROUND & CONTENT --- */
         .animated-bg {
@@ -221,10 +221,10 @@
 </head>
 <body>
 
-    <div id="loader">
+    <!-- <div id="loader">
         <div id="loader">
         <div class="loader-text">Engagement<br>Invitation</div>
-    </div>
+    </div> -->
 
     </div>
 
@@ -290,12 +290,12 @@
     </div>
 
     <script>
-        window.addEventListener('load', () => {
-            setTimeout(() => {
-                const loader = document.getElementById('loader');
-                loader.classList.add('fade-out');
-            }, 2000);
-        });
+        // window.addEventListener('load', () => {
+        //     setTimeout(() => {
+        //         const loader = document.getElementById('loader');
+        //         loader.classList.add('fade-out');
+        //     }, 2000);
+        // });
 
         const targetDate = new Date("May 13, 2026 09:45:00").getTime();
 
