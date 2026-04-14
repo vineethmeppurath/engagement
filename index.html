@@ -146,10 +146,11 @@
             align-items: center;
             justify-content: center;
             gap: 15px;
+            flex-wrap: wrap;
         }
         .names {
             font-family: 'Great Vibes', cursive;
-            font-size: clamp(56px, 12vw, 55px);
+            font-size: clamp(36px, 10vw, 55px);
             line-height: 1.1;
             background: linear-gradient(135deg, var(--emerald), var(--gold));
             -webkit-background-clip: text;
@@ -157,10 +158,11 @@
             display: inline-block;
             padding: 10px;
             font-weight: bold;
+            white-space: nowrap;
         }
 
         .rings-dynamic {
-            width: 38px;
+            width: clamp(26px, 6vw, 38px);
             vertical-align: middle;
             animation: pulse-ring 4s infinite ease-in-out;
             filter: drop-shadow(0 6px 12px rgba(8,90,49,0.15));
@@ -203,6 +205,17 @@
             background: linear-gradient(180deg, var(--emerald), var(--emerald-light));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            display: inline-block;
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            cursor: pointer;
+        }
+        .date-highlight:active {
+            transform: scale(1.4);
+        }
+        @media (hover: hover) {
+            .date-highlight:hover {
+                transform: scale(1.15);
+            }
         }
         .date-month {
             font-size: 0.85rem;
@@ -284,8 +297,21 @@
             font-weight: 300;
             transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
         }
-        .venue-card:hover .venue-icon {
-            transform: scale(1.1) rotate(5deg);
+        .venue-info {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            text-decoration: none;
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            cursor: pointer;
+        }
+        .venue-info:active {
+            transform: scale(1.05);
+        }
+        @media (hover: hover) {
+            .venue-info:hover {
+                transform: scale(1.03);
+            }
         }
         .venue-info h3 {
             font-size: 1.15rem;
@@ -304,7 +330,7 @@
         /* Map Embed */
         .map-wrapper {
             width: 100%;
-            height: 200px;
+            height: 140px;
             border-radius: 24px;
             overflow: hidden;
             border: 3px solid white;
@@ -344,6 +370,8 @@
         }
 
         @media (max-width: 480px) {
+            .names-wrapper { gap: 6px; margin-bottom: 5px; }
+            .names { font-size: 2.1rem; padding: 4px 10px; }
             .bento-row { flex-direction: row; gap: 10px; }
             .date-highlight { font-size: 2.4rem; }
             .countdown-wrapper { gap: 8px; }
@@ -400,21 +428,20 @@
             <!-- Venue & Context -->
             <div class="glass-card venue-card delay-4" style="flex-direction: column; align-items: stretch; padding: 24px;">
                 
-                <div style="display: flex; gap: 20px; align-items: center; width: 100%; padding-bottom: 10px;">
-                    <div class="venue-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-                    </div>
-                    <div class="venue-info">
-                        <h3>Sanjo Auditorium</h3>
-                        <p>Opp. St. Joseph’s Church,<br>Chunangamvely, Aluva</p>
-                    </div>
+                <div style="width: 100%; padding-bottom: 10px;">
+                    <a href="https://www.google.com/maps/dir/?api=1&destination=Sanjo+Auditorium,+Opp.+St.+Joseph’s+Church,+Chunangamvely,+Aluva" target="_blank" class="venue-info">
+                        <div class="venue-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                        </div>
+                        <div>
+                            <h3 style="display: flex; align-items: center; white-space: nowrap;">Sanjo Auditorium <span style="color:white; background:var(--emerald); width:26px; height:26px; border-radius:50%; margin-left:10px; display:inline-flex; align-items:center; justify-content:center; box-shadow: 0 4px 10px rgba(8, 90, 49, 0.2); flex-shrink: 0;"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="margin-right:2px; margin-top:1px;"><polygon points="3 11 22 2 13 21 11 13 3 11"></polygon></svg></span></h3>
+                            <p>Opp. St. Joseph’s Church,<br>Chunangamvely, Aluva</p>
+                        </div>
+                    </a>
                 </div>
 
                 <div class="map-wrapper">
                     <iframe src="https://maps.google.com/maps?q=10.0897177,76.381047&hl=en&z=17&output=embed" loading="lazy"></iframe>
-                    <a href="https://www.google.com/maps/dir/?api=1&destination=10.0897177,76.381047" target="_blank" class="map-overlay">
-                        Get Directions
-                    </a>
                 </div>
 
             </div>
